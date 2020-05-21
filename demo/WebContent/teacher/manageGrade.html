@@ -1,0 +1,39 @@
+<div class="col-md-10 col-md-offset-1">
+	<div class="row">
+		<h1>成绩查看</h1>
+	</div>
+	
+	<!-- 搜索框和添加按钮 -->
+	<div class="row" align="right">
+		<div class="col-md-5" style="padding:0px;">
+			<form class="nav-form" action="search" method="get">
+				<div class="input-group">
+      				<input type="text" class="form-control" placeholder="搜索...">
+      				<span class="input-group-btn">
+       				 	<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+      				</span>
+      				<select name="search-type" class="form-control" style="margin-left:20px;">
+						<option value="1">按班级搜索</option>
+						<option value="2">按学生姓名搜索</option>
+						<option value="2">按专业搜索</option>
+						<option value="2">按年级搜索</option>
+						<option value="2">按学号搜索</option>
+					</select>
+    			</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table table-striped table-hover">
+		<thead>
+			<tr><th>记录编号</th><th>学生</th><th>考试名</th><th>是否通过</th><th>分数</th><th>科目</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>000001</td><td>张三</td><td>练习考试</td><td>是</td><td>80</td><td>xxx科目</td></tr>
+			<tr><td>000002</td><td>张三</td><td>期中考试</td><td>是</td><td>80</td><td>xxx科目</td></tr>
+			<tr><td>000003</td><td>张三</td><td>期末考试</td><td>是</td><td>80</td><td>xxx科目</td></tr>
+			<tr><td>000004</td><td>张三</td><td>demo考试1</td><td>否</td><td>0</td><td>xxx科目</td></tr>
+		</tbody>
+		</table>
+	</div>
+</div>
