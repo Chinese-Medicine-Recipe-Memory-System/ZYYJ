@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyyj.mapper.exam.ExamProgrammeMapper">
+
+	<!-- List<ExamProgramme> getAllExamProgrammes(); -->
+	<select id="getAllExamProgrammes" resultType="ExamProgramme">
+		select * from zyyj_exam
+	</select>
+	
+	<!--  void addExamProgramme(ExamProgramme examProgramme);-->
+	<insert id="addExamProgramme">
+		insert zyyj_exam values(#{exam_id}, #{name}, #{total_question}, #{total_score}, #{pass_score}, #{question_num}, #{limit_time}, #{createdate})
+	</insert>
+</mapper>
