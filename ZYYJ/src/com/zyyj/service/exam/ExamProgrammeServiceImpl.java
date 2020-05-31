@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.zyyj.bean.ExamProgramme;
 import com.zyyj.mapper.exam.ExamProgrammeMapper;
+import com.zyyj.service.ServiceUtil;
 
 @Service
 public class ExamProgrammeServiceImpl implements ExamProgrammeService{
@@ -21,12 +22,27 @@ public class ExamProgrammeServiceImpl implements ExamProgrammeService{
 	}
 
 	@Override
-	public void addExamProgramme(ExamProgramme examProgramme) {
+	public int addExamProgramme(ExamProgramme examProgramme) {
 		String createdate = LocalDate.now().toString();
 		examProgramme.setCreatedate(createdate);
 		
+		// 为新的记录生成ID
+		String max_id = mapper.getMaxId();
+		String next_id = ServiceUtil.getNextId(max_id, "exam");
 		
-		mapper.addExamProgramme(examProgramme);
+		examProgramme.setExam_id(next_id);
+		
+		return mapper.addExamProgramme(examProgramme);
+	}
+
+	@Override
+	public int updateExamProgramme(ExamProgramme examProgramme) {
+		return mapper.updateExamProgramme(examProgramme);
+	}
+
+	@Override
+	public int deleteExamProgramme(String exam_id) {
+		return mapper.deleteExamProgramme(exam_id);
 	}
 	
 	

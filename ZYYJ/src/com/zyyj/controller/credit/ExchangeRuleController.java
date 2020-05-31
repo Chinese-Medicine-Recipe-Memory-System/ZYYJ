@@ -1,6 +1,9 @@
 package com.zyyj.controller.credit;
 
-import java.util.Map;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,23 +32,21 @@ public class ExchangeRuleController {
 	 * @param exchangeRule
 	 * @param map
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="addExchangeRule", method=RequestMethod.POST)
-	public String addExchangeRule(ExchangeRule exchangeRule, Map<String, Object> map) {
-		exchangeRuleService.addExchangeRule(exchangeRule);
+	public String addExchangeRule(ExchangeRule exchangeRule, HttpServletResponse resp) throws IOException {
+		int stat = exchangeRuleService.addExchangeRule(exchangeRule);
 		
-		map.put("externalPage", "credit/exchangerule.jsp");
-		
-		return "redirect:admin";
-		// 后期登录模块完成后，通过session获取当前用户类型再跳转到teacher或admin主页
-		// 当前调试只跳转到admin
-		/*User user = (User)request.getSession().getAttribute("user");
-		if(user.getPost() == 2) {
-			return "redirect:admin.jsp";
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		if(stat > 0) {
+			out.println("<script>alert('添加成功');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
 		}
 		else {
-			return "redirect:teacher.jsp";
-		}*/
+			out.println("<script>alert('添加失败');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
+		}
+		return null;
 	}
 	
 	/**
@@ -53,22 +54,21 @@ public class ExchangeRuleController {
 	 * @param exchangeRule
 	 * @param map
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="updateExchangeRule", method=RequestMethod.POST)
-	public String updateExchangeRule(ExchangeRule exchangeRule, Map<String, Object> map) {
-		exchangeRuleService.updateExchangeRule(exchangeRule);
+	public String updateExchangeRule(ExchangeRule exchangeRule, HttpServletResponse resp) throws IOException {
+		int stat = exchangeRuleService.updateExchangeRule(exchangeRule);
 		
-		map.put("externalPage", "credit/exchangerule.jsp");
-		return "redirect:admin";
-		// 后期登录模块完成后，通过session获取当前用户类型再跳转到teacher或admin主页
-		// 当前调试只跳转到admin
-		/*User user = (User)request.getSession().getAttribute("user");
-		if(user.getPost() == 2) {
-			return "redirect:admin.jsp";
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		if(stat > 0) {
+			out.println("<script>alert('修改成功');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
 		}
 		else {
-			return "redirect:teacher.jsp";
-		}*/
+			out.println("<script>alert('修改失败');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
+		}
+		return null;
 	}
 	
 	/**
@@ -76,21 +76,20 @@ public class ExchangeRuleController {
 	 * @param rule_id
 	 * @param map
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="deleteExchangeRule", method=RequestMethod.GET)
-	public String deleteExchangeRule(String rule_id, Map<String, Object> map) {
-		exchangeRuleService.deleteExchangeRule(rule_id);
+	public String deleteExchangeRule(String rule_id, HttpServletResponse resp) throws IOException {
+		int stat = exchangeRuleService.deleteExchangeRule(rule_id);
 		
-		map.put("externalPage", "credit/exchangerule.jsp");
-		return "redirect:admin";
-		// 后期登录模块完成后，通过session获取当前用户类型再跳转到teacher或admin主页
-		// 当前调试只跳转到admin
-		/*User user = (User)request.getSession().getAttribute("user");
-		if(user.getPost() == 2) {
-			return "redirect:admin.jsp";
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		if(stat > 0) {
+			out.println("<script>alert('删除成功');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
 		}
 		else {
-			return "redirect:teacher.jsp";
-		}*/
+			out.println("<script>alert('删除失败');window.location='admin.jsp?externalPage=credit/exchangerule.jsp';</script>");
+		}
+		return null;
 	}
 }

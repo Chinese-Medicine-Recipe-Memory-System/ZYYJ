@@ -14,4 +14,19 @@
 	<insert id="addExamProgramme">
 		insert zyyj_exam values(#{exam_id}, #{name}, #{total_question}, #{total_score}, #{pass_score}, #{question_num}, #{limit_time}, #{createdate})
 	</insert>
+	
+	<!-- void updateExamProgramme(ExamProgramme examProgramme); -->
+	<update id="updateExamProgramme">
+		update zyyj_exam set name=#{name}, total_question=#{total_question}, 
+		total_score=#{total_score}, pass_score=#{pass_score}, question_num=#{question_num}, limit_time=#{limit_time} where exam_id=#{exam_id};
+	</update>
+	
+	<!-- void deleteExamProgramme(String exam_id); -->
+	<delete id="deleteExamProgramme">
+		delete from zyyj_exam where exam_id=#{exam_id};
+	</delete>
+	
+	<select id="getMaxId" resultType="String">
+		select max(exam_id) from zyyj_exam;
+	</select>
 </mapper>

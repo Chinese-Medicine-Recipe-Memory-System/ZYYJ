@@ -24,4 +24,8 @@
 	<delete id="deleteExchangeRule">
 		delete from zyyj_exchangerule where rule_id=#{rule_id}
 	</delete>
+	
+	<select id="getMaxId" resultType="String">
+		select max(rule_id) from zyyj_exchangerule
+	</select>
 </mapper>

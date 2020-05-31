@@ -6,7 +6,15 @@ import com.zyyj.bean.ExamProgramme;
 
 public interface ExamProgrammeMapper {
 	
+	// 查询所有
 	List<ExamProgramme> getAllExamProgrammes();
+	// 添加
+	int addExamProgramme(ExamProgramme examProgramme);
+	// 修改
+	int updateExamProgramme(ExamProgramme examProgramme);
+	// 删除
+	int deleteExamProgramme(String exam_id);
 	
-	void addExamProgramme(ExamProgramme examProgramme);
+	// 获取最大ID
+	String getMaxId();
 }

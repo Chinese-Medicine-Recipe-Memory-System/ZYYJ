@@ -12,12 +12,13 @@ import com.zyyj.bean.ExchangeRule;
 public interface ExchangeRuleMapper {
 	
 	// 添加
-	void addExchangeRule(ExchangeRule exchangeRule);
+	int addExchangeRule(ExchangeRule exchangeRule);
 	// 查询所有
 	List<ExchangeRule> getAllExchangeRules();
 	// 修改
-	void updateExchangeRule(ExchangeRule exchangeRule);
+	int updateExchangeRule(ExchangeRule exchangeRule);
 	// 删除
-	void deleteExchangeRule(String rule_id);
+	int deleteExchangeRule(String rule_id);
 	
+	String getMaxId();
 }

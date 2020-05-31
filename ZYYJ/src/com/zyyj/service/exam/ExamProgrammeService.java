@@ -8,5 +8,9 @@ public interface ExamProgrammeService {
 	
 	List<ExamProgramme> getAllExamProgrammes();
 	
-	void addExamProgramme(ExamProgramme examProgramme);
+	int addExamProgramme(ExamProgramme examProgramme);
+	
+	int updateExamProgramme(ExamProgramme examProgramme);
+	
+	int deleteExamProgramme(String exam_id);
 }

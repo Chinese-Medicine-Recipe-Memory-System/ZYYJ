@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.zyyj.bean.ExchangeRule;
 import com.zyyj.mapper.credit.ExchangeRuleMapper;
+import com.zyyj.service.ServiceUtil;
 
 @Service
 public class ExchangeRuleServiceImpl implements ExchangeRuleService{
@@ -17,18 +18,21 @@ public class ExchangeRuleServiceImpl implements ExchangeRuleService{
 	
 	/**
 	 * 添加的业务逻辑：生成日期和id，封装后用传给持久层
+	 * @return 
 	 */
 	@Override
-	public void addExchangeRule(ExchangeRule exchangeRule) {
+	public int addExchangeRule(ExchangeRule exchangeRule) {
 		// 生成创建日期
 		String createdate = LocalDate.now().toString();
 		exchangeRule.setCreatedate(createdate);
 		
-		// 为新的记录生成 ID：方法未定
-		String rule_id = "rule_001";
-		exchangeRule.setRule_id(rule_id);
+		// 生成ID
+		String max_id = exchangeRuleMapper.getMaxId();
+		String next_id = ServiceUtil.getNextId(max_id, "rule");
+		exchangeRule.setRule_id(next_id);
+		
 		// 添加到数据库
-		exchangeRuleMapper.addExchangeRule(exchangeRule);
+		return exchangeRuleMapper.addExchangeRule(exchangeRule);
 	}
 	
 	/**
@@ -42,17 +46,19 @@ public class ExchangeRuleServiceImpl implements ExchangeRuleService{
 
 	/**
 	 * 修改，
+	 * @return 
 	 */
 	@Override
-	public void updateExchangeRule(ExchangeRule exchangeRule) {
-		exchangeRuleMapper.updateExchangeRule(exchangeRule);
+	public int updateExchangeRule(ExchangeRule exchangeRule) {
+		return exchangeRuleMapper.updateExchangeRule(exchangeRule);
 	}
 	
 	/**
 	 * 删除
+	 * @return 
 	 */
 	@Override
-	public void deleteExchangeRule(String rule_id) {
-		exchangeRuleMapper.deleteExchangeRule(rule_id);
+	public int deleteExchangeRule(String rule_id) {
+		return exchangeRuleMapper.deleteExchangeRule(rule_id);
 	}
 }

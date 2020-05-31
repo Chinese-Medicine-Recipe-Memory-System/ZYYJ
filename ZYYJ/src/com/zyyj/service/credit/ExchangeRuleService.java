@@ -6,11 +6,11 @@ import com.zyyj.bean.ExchangeRule;
 
 public interface ExchangeRuleService {
 	
-	void addExchangeRule(ExchangeRule exchangeRule);
+	int addExchangeRule(ExchangeRule exchangeRule);
 	
 	List<ExchangeRule> getAllExchangeRules();
 	
-	void updateExchangeRule(ExchangeRule exchangeRule);
+	int updateExchangeRule(ExchangeRule exchangeRule);
 	
-	void deleteExchangeRule(String rule_id);
+	int deleteExchangeRule(String rule_id);
 }
