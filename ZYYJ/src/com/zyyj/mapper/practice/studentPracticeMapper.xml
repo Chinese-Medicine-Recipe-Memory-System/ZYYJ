@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyyj.mapper.practice.StudentPracticeMapper">
+	
+	<!-- List<StudentPractice> getAllStudentPractice(); -->
+	<select id="getAllStudentPractice" resultType="StudentPractice">
+		select stp.practice_id, stu.name as student_name, chk.name as checkpoint_name, stp.status, stp.createtime, stp.score, prog.name as programme_name, cour.name as course_name
+		from zyyj_student_practice as stp, zyyj_student as stu, zyyj_checkpoint as chk, zyyj_programme as prog, zyyj_course as cour 
+		where stp.stu_id=stu.stu_id and stp.exam_id=chk.checkpoint_id and stp.programme_id=prog.programme_id and stp.course_id=cour.course_id;
+	</select>
+</mapper>
