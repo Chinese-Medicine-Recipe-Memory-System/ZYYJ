@@ -26,10 +26,16 @@ public class ExamProgrammeServiceImpl implements ExamProgrammeService{
 		String createdate = LocalDate.now().toString();
 		examProgramme.setCreatedate(createdate);
 		
+		String next_id = null;
+		
 		// 为新的记录生成ID
 		String max_id = mapper.getMaxId();
-		String next_id = ServiceUtil.getNextId(max_id, "exam");
-		
+		if(max_id==null) {
+			next_id = "exam001";
+		}
+		else{
+			next_id = ServiceUtil.getNextId(max_id, "exam");
+		}
 		examProgramme.setExam_id(next_id);
 		
 		return mapper.addExamProgramme(examProgramme);

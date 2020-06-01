@@ -28,7 +28,13 @@ public class ExchangeRuleServiceImpl implements ExchangeRuleService{
 		
 		// 生成ID
 		String max_id = exchangeRuleMapper.getMaxId();
-		String next_id = ServiceUtil.getNextId(max_id, "rule");
+		String next_id = null;
+		if(max_id == null) {
+			next_id = "rule001";
+		}
+		else {
+			next_id = ServiceUtil.getNextId(max_id, "rule");
+		}
 		exchangeRule.setRule_id(next_id);
 		
 		// 添加到数据库
