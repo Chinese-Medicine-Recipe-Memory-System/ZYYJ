@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ServiceUtil {
 	
-	public static String getNextId(String max_id, String prefix) {
+	public static String getNextId(String max_id, String prefix) {          // 为各种实体生成规范的ID
 		String next_id = max_id;
 		int next = Integer.valueOf(max_id.substring(prefix.length() + 1)) + 1;
 		if(next < 10) {
