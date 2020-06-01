@@ -5,7 +5,7 @@
 <head>
     <title>管理平台</title>
     <meta charset="utf-8">
-    <script src="utility.js"></script>
+    <script src="utility.js" charset="utf-8"></script>
    	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -93,7 +93,7 @@
                     
                     
                     			<li class="nav-item">
-                    				<a href="#" class="nav-text" onclick="loadExternalPage('practice/studentPractice.html')">
+                    				<a href="#" class="nav-text" onclick="loadExternalPage('practice/studentPractice.jsp')">
                     				<span class="glyphicon glyphicon-folder-open">  练习记录查看</span></a>
                     			</li>
           					</ul>
@@ -114,7 +114,7 @@
                     			</li>
                     
                     			<li class="nav-item">
-                    				<a href="#" class="nav-text" onclick="loadExternalPage('practice/studentPractice.html')">
+                    				<a href="#" class="nav-text" onclick="loadExternalPage('exam/studentExam.jsp')">
                     				<span class="glyphicon glyphicon-folder-open">  考试记录查看</span></a>
                     			</li>
           					</ul>
@@ -141,7 +141,7 @@
                     			</li>
                     
                     			<li class="nav-item">
-                    				<a href="#" class="nav-text" onclick="loadExternalPage('credit/exchangeIntegeral.jsp')">
+                    				<a href="#" class="nav-text" onclick="loadExternalPage('credit/exchangeIntegral.jsp')">
                     				<span class="glyphicon glyphicon-folder-open">  积分兑换记录</span></a>
                     			</li>
           					</ul>

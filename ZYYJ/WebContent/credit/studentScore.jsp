@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div class="col-md-10 col-md-offset-1">
+	<div class="row">
+		<h1>积分排行榜</h1>
+	</div>
+	
+	<!-- 搜索框和添加按钮 -->
+	<div class="row" align="right">
+		<div class="col-md-5" style="padding:0px;">
+			<form class="nav-form" action="search" method="get">
+				<div class="input-group">
+      				<input type="text" class="form-control" placeholder="搜索...">
+      				<span class="input-group-btn">
+       				 	<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+      				</span>
+      				<select name="search-type" class="form-control" style="margin-left:20px;">
+						<option value="1">按学生姓名搜索</option>
+						<option value="2">按班级搜索</option>
+						<option value="2">按专业搜索</option>
+						<option value="2">按年级搜索</option>
+						<option value="2">按学号搜索</option>
+					</select>
+    			</div>
+    			
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table table-striped table-hover">
+		<thead>
+			<tr><th>积分编号</th><th>学生姓名</th><th>总分</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>1<span class="glyphicon glyphicon-fire top3"></span></td><td>张三</td><td>000001</td><td>1</td><td>暂无备注</td><td>2020-5-6</td><td>练习</td></tr>
+			<tr><td>2<span class="glyphicon glyphicon-fire top3"></span></td><td>学生1</td><td>000001</td><td>1</td><td>暂无备注</td><td>2020-5-6</td><td>练习</td></tr>
+			<tr><td>3<span class="glyphicon glyphicon-fire top3"></span></td><td>学生3</td><td>000001</td><td>1</td><td>暂无备注</td><td>2020-5-6</td><td>练习</td></tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+<style>
+.top3{color:red;}
+</style>
