@@ -14,33 +14,33 @@
 	<!-- searchByStudent(String stuName) -->
 	<select id="searchByStudent" resultType="ExchangeIntegral">
 		select a.exchange_id, b.name as rule_name, c.name as stu_name, a.createdate, a.score, a.integral 
-		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.name=#{stuName};
+		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.name like #{stuName};
 	</select>
 	
 	<!-- searchByClass(String className) -->
 	<select id="searchByClass" resultType="ExchangeIntegral">
 		select a.exchange_id, b.name as rule_name, c.name as stu_name, a.createdate, a.score, a.integral 
 		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.class_id = 
-			(select class_id from zyyj_class where name=#{className});
+			(select class_id from zyyj_class where name like #{className});
 	</select>
 	
 	<!-- searchByGrade(String grade) -->
 	<select id="searchByGrade" resultType="ExchangeIntegral">
 		select a.exchange_id, b.name as rule_name, c.name as stu_name, a.createdate, a.score, a.integral 
 		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.class_id = 
-			(select class_id from zyyj_class where grade_id=(select grade_id from zyyj_grade where name=#{grade}))
+			(select class_id from zyyj_class where grade_id=(select grade_id from zyyj_grade where name like #{grade}))
 	</select>
 	
 	<!-- searchByMajor(String major) -->
 	<select id="searchByMajor" resultType="ExchangeIntegral">
 		select a.exchange_id, b.name as rule_name, c.name as stu_name, a.createdate, a.score, a.integral 
 		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.class_id = 
-			(select class_id from zyyj_class where grade_id=(select grade_id from zyyj_grade where major_id=(select major_id from zyyj_major where name=#{major})))
+			(select class_id from zyyj_class where grade_id=(select grade_id from zyyj_grade where major_id=(select major_id from zyyj_major where name like #{major})))
 	</select>
 	
 	<!-- searchByStudentId(String stuId) -->
 	<select id="searchByStudentId" resultType="ExchangeIntegral">
 		select a.exchange_id, b.name as rule_name, c.name as stu_name, a.createdate, a.score, a.integral 
-		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.account=#{stuId};
+		from zyyj_exchangeintegral as a, zyyj_exchangerule as b, zyyj_student as c where a.rule_id=b.rule_id and a.stu_id=c.stu_id and c.account like #{stuId};
 	</select>
 </mapper>
