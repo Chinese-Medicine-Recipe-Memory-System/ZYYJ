@@ -42,15 +42,19 @@ function search_state_change(externalPage){
 
 // 获取搜索结果
 function search(url, externalPage){
-	if(xmlhttp!=null){
-		var input = document.getElementById("search-input").value;
-		var option = document.getElementById("search-option").value;
-		
-		var post_data = "input=" + input + "&option=" + option;
-		
-		xmlhttp.onreadystatechange = function(){search_state_change(externalPage);}
-		xmlhttp.open('post', url, true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=utf-8");
-		xmlhttp.send(post_data);
+	var input = document.getElementById("search-input").value;
+	var option = document.getElementById("search-option").value;
+	if(input != ""){
+		if(xmlhttp!=null){
+			var post_data = "input=" + input + "&option=" + option;
+			
+			xmlhttp.onreadystatechange = function(){search_state_change(externalPage);}
+			xmlhttp.open('post', url, true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+			xmlhttp.send(post_data);
+		}
+	}
+	else{
+		alert("请输入搜索内容");
 	}
 }
