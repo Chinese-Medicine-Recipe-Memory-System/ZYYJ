@@ -22,6 +22,7 @@ public class StudentExamServiceImpl implements StudentExamService{
 	@Override
 	public String getSearchResult(String input, String option) {
 		List<StudentExam> list = null;
+		input = "%" + input + "%";
 		if(option.equals("1")) {
 			list = mapper.searchByStudent(input);
 		}
