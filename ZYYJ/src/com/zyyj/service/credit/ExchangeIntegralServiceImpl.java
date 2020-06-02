@@ -24,6 +24,7 @@ public class ExchangeIntegralServiceImpl implements ExchangeIntegralService{
 	@Override
 	public String getSearchResult(String input, String option) {
 		List<ExchangeIntegral> searchResult;
+		input = "%" + input + "%";
 		// 根据不同的搜索选项进行搜索
 		if(option.equals("1")) {
 			searchResult =  mapper.searchByStudent(input);
