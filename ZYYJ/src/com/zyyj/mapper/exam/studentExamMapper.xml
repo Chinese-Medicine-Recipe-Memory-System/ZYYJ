@@ -23,13 +23,13 @@
 		select p.practice_id, s.name as stu_name, e.name as exam_name, p.status, p.createtime, p.score, c.name as course_name 
 		from zyyj_student_practice as p, zyyj_student as s, zyyj_course as c, zyyj_exam as e 
 		where p.course_id=c.course_id and p.exam_id=e.exam_id and p.programme_id is null and 
-		p.stu_id in (select stu_id from zyyj_student, zyyj_class where zyyj_student.class_id=zyyj_class.class_id and zyyj_class.name=#{className});
+		p.stu_id in (select stu_id from zyyj_student, zyyj_class where zyyj_student.class_id=zyyj_class.class_id and zyyj_class.name like #{className});
 	</select>
 	
 	<select id="searchByExam" resultType="StudentExam">
 		select p.practice_id, s.name as stu_name, e.name as exam_name, p.status, p.createtime, p.score, c.name as course_name  
 		from zyyj_student_practice as p, zyyj_student as s, zyyj_course as c, zyyj_exam as e 
 		where p.stu_id=s.stu_id and p.course_id=c.course_id
-		and p.exam_id=e.exam_id and p.programme_id is null and e.name=#{exam_name};
+		and p.exam_id=e.exam_id and p.programme_id is null and e.name like #{exam_name}
 	</select>
 </mapper>
