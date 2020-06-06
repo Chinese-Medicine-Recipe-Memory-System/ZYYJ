@@ -1,3 +1,4 @@
+<%@page import="com.github.pagehelper.PageInfo"%>
 <%@page import="com.zyyj.bean.StudentExam"%>
 <%@page import="java.util.List"%>
 <%@page import="com.zyyj.service.exam.StudentExamService"%>
@@ -8,6 +9,7 @@
 <%
 	ApplicationContext ac = new ClassPathXmlApplicationContext("springMVC.xml");
 	StudentExamService service = ac.getBean("studentExamServiceImpl", StudentExamService.class);
+	
 	List<StudentExam> list = service.getAllStudentExams();
 %>
 <div class="col-md-10 col-md-offset-1">

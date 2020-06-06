@@ -26,7 +26,7 @@
 			<%
 			for(ExchangeRule e : list){%>
 				<tr><td><%=e.getRule_id() %></td><td><%=e.getName() %></td><td><%=e.getCreatedate() %></td><td><%=e.getScore() %></td><td><%=e.getIntegral() %></td>
-				<td><a href="#" data-toggle="modal" data-target="#modify-modal" onclick="javascript:updateModal('<%=e.getRule_id()%>')"><span class="glyphicon glyphicon-pencil"> 修改</span></a></td>
+				<td><a href="#" data-toggle="modal" data-target="#modify-modal" onclick="javascript:updateModalExchangeRule('<%=e.getRule_id()%>')"><span class="glyphicon glyphicon-pencil"> 修改</span></a></td>
 				<td><a href="deleteExchangeRule?rule_id=<%=e.getRule_id()%>"><span class="glyphicon glyphicon-trash"> 删除</span></a></td></tr>
 			<%}
 			%>
@@ -72,10 +72,10 @@
       		</div>
       		<div class="modal-body">
       			<form class="form-signin" action="updateExchangeRule" method="post">
-					<input class="form-control" type="text" id="update_id" name="rule_id" placeholder="规则编号" value="" readonly>
-					<input class="form-control" type="text" name="name" placeholder="规则名">
-					<input class="form-control" type="text" name="score" placeholder="得分">
-					<input class="form-control" type="text" name="integral" placeholder="消耗积分">
+					规则编号：<input class="form-control" type="text" id="rule_id" name="rule_id" placeholder="规则编号" value="" readonly>
+					规则名：<input class="form-control" type="text" id="name" name="name" placeholder="规则名">
+					得学分：<input class="form-control" type="text" id="score" name="score" placeholder="得分">
+					消耗积分：<input class="form-control" type="text" id="integral" name="integral" placeholder="消耗积分">
 					<button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
 				</form>
       		</div>

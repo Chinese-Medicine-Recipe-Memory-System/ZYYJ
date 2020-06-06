@@ -48,4 +48,13 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CollegeListAction</servlet-name>
+		<servlet-class>College.CollegeListAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CollegeListAction</servlet-name>
+		<url-pattern>/CollegeListAction</url-pattern>
+	</servlet-mapping>
 </web-app>

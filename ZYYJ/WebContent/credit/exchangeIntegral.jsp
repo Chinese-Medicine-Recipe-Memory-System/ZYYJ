@@ -24,10 +24,9 @@
       					</span>
       					<select id="search-option" name="search-option" class="form-control" style="margin-left:20px;">
 							<option value="1">按学生姓名搜索</option>
-							<option value="2">按班级搜索</option>
-							<option value="3">按专业搜索</option>
-							<option value="4">按年级搜索</option>
-							<option value="5">按学号搜索</option>
+							<option value="2">按兑换规则搜索</option>
+							<option value="3">按班级搜索</option>
+							<option value="4">按学号搜索</option>
 						</select>
     				</div>
 				</form>
