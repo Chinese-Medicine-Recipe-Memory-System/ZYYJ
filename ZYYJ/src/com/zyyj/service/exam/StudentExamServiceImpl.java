@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zyyj.bean.StudentExam;
 import com.zyyj.mapper.exam.StudentExamMapper;
 
@@ -16,7 +18,8 @@ public class StudentExamServiceImpl implements StudentExamService{
 	
 	@Override
 	public List<StudentExam> getAllStudentExams() {
-		return mapper.getAllStudentExams();
+		List<StudentExam> list = mapper.getAllStudentExams();
+		return list;
 	}
 
 	@Override

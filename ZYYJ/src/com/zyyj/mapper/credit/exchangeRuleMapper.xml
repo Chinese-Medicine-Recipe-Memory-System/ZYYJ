@@ -28,4 +28,8 @@
 	<select id="getMaxId" resultType="String">
 		select max(rule_id) from zyyj_exchangerule
 	</select>
+	
+	<select id="getExchangeRule" resultType="ExchangeRule">
+		select * from zyyj_exchangerule where rule_id=#{rule_id};
+	</select>
 </mapper>

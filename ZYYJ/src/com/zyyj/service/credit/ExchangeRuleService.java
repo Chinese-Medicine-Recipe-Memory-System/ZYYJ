@@ -13,4 +13,6 @@ public interface ExchangeRuleService {
 	int updateExchangeRule(ExchangeRule exchangeRule);
 	
 	int deleteExchangeRule(String rule_id);
+	
+	String getExchangeRuleJSON(String rule_id);
 }

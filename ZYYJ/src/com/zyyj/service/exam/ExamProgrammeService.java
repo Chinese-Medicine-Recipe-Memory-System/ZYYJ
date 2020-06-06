@@ -13,4 +13,10 @@ public interface ExamProgrammeService {
 	int updateExamProgramme(ExamProgramme examProgramme);
 	
 	int deleteExamProgramme(String exam_id);
+	
+	String getExamProgramme(String exam_id);
+	
+	List<String> getAllCourses();
+	
+	String getSearchResult(String input, String option);
 }

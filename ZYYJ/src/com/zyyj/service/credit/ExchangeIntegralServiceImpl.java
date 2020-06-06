@@ -30,16 +30,13 @@ public class ExchangeIntegralServiceImpl implements ExchangeIntegralService{
 			searchResult =  mapper.searchByStudent(input);
 		}
 		else if(option.equals("2")) {
-			searchResult =  mapper.searchByClass(input);
+			searchResult =  mapper.searchByExchangeRule(input);
 		}
 		else if(option.equals("3")) {
-			searchResult =  mapper.searchByMajor(input);
+			searchResult =  mapper.searchByClass(input);
 		}
 		else if(option.equals("4")) {
-			searchResult =  mapper.searchByGrade(input);
-		}
-		else if(option.equals("5")){
-			searchResult =  mapper.searchByStudentId(input);
+			searchResult =  mapper.searchByAccount(input);
 		}
 		else {
 			searchResult = null;

@@ -9,4 +9,5 @@ public interface StudentExamService {
 	List<StudentExam> getAllStudentExams();
 	
 	String getSearchResult(String input, String option);
+
 }

@@ -21,4 +21,6 @@ public interface ExchangeRuleMapper {
 	int deleteExchangeRule(String rule_id);
 	
 	String getMaxId();
+	
+	ExchangeRule getExchangeRule(String rule_id);
 }

@@ -92,4 +92,11 @@ public class ExchangeRuleController {
 		}
 		return null;
 	}
+	@RequestMapping(value="getExchangeRuleJSON", method=RequestMethod.POST)
+	public void getExchangeRuleJSON(String rule_id, HttpServletResponse resp) throws IOException {
+		resp.setContentType("text/json;charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.write(exchangeRuleService.getExchangeRuleJSON(rule_id));
+		out.close();
+	}
 }

@@ -7,26 +7,76 @@
 
 	<!-- List<ExamProgramme> getAllExamProgrammes(); -->
 	<select id="getAllExamProgrammes" resultType="ExamProgramme">
-		select * from zyyj_exam
+		select e.exam_id, e.name, u.realname as creator, e.total_question, e.total_score, e.pass_score, e.question_num, e.limit_time, e.createdate, c.name as course 
+		from zyyj_exam as e, zyyj_user as u, zyyj_exam_record as r, zyyj_course as c, zyyj_course_exam as ce 
+		where e.exam_id=r.exam_id and u.user_id=r.user_id and ce.exam_id=e.exam_id and c.course_id=ce.course_id;
 	</select>
 	
 	<!--  void addExamProgramme(ExamProgramme examProgramme);-->
 	<insert id="addExamProgramme">
 		insert zyyj_exam values(#{exam_id}, #{name}, #{total_question}, #{total_score}, #{pass_score}, #{question_num}, #{limit_time}, #{createdate})
 	</insert>
+	<!-- int addCourseExam(ExamProgramme examProgramme); -->
+	<insert id="addCourseExam">
+		insert zyyj_course_exam values((select course_id from zyyj_course where name=#{course}),#{exam_id});
+	</insert>
+	<!-- int addExamRecord(ExamProgramme examProgramme); -->
+	<insert id="addExamRecord">
+		insert zyyj_exam_record values((select user_id from zyyj_user where realname=#{creator}), #{exam_id});
+	</insert>
+	
 	
 	<!-- void updateExamProgramme(ExamProgramme examProgramme); -->
 	<update id="updateExamProgramme">
 		update zyyj_exam set name=#{name}, total_question=#{total_question}, 
 		total_score=#{total_score}, pass_score=#{pass_score}, question_num=#{question_num}, limit_time=#{limit_time} where exam_id=#{exam_id};
 	</update>
+	<!-- int updateCourseExam(ExamProgramme examProgramme); -->
+	<update id="updateCourseExam">
+		update zyyj_course_exam set course_id=(select course_id from zyyj_course where name=#{course}) where exam_id=#{exam_id};
+	</update>
+	
 	
 	<!-- void deleteExamProgramme(String exam_id); -->
 	<delete id="deleteExamProgramme">
 		delete from zyyj_exam where exam_id=#{exam_id};
 	</delete>
-	
+	<!-- int deleteCourseExam(String exam_id); -->
+	<delete id="deleteCourseExam">
+		delete from zyyj_course_exam where exam_id=#{exam_id};
+	</delete>
+	<!-- int deleteExamRecord(String exam_id); -->
+	<delete id="deleteExamRecord">
+		delete from zyyj_exam_record where exam_id=#{exam_id};
+	</delete>
 	<select id="getMaxId" resultType="String">
 		select max(exam_id) from zyyj_exam;
+	</select>
+	
+	<select id="getExamProgramme" resultType="ExamProgramme">
+		select e.exam_id, e.name, u.realname as creator, e.total_question, e.total_score, e.pass_score, e.question_num, e.limit_time, e.createdate, c.name as course 
+		from zyyj_exam as e, zyyj_user as u, zyyj_exam_record as r, zyyj_course as c, zyyj_course_exam as ce 
+		where e.exam_id=r.exam_id and u.user_id=r.user_id and ce.exam_id=e.exam_id and c.course_id=ce.course_id and e.exam_id=#{exam_id};
+	</select>
+	
+	<!-- List<String> getAllCourses() -->
+	<select id="getAllCourses" resultType="String">
+		select name from zyyj_course;
+	</select>
+	
+	
+	<!-- List<ExamProgramme> searchByName(String name); -->
+	<select id="searchByName" resultType="ExamProgramme">
+		select e.exam_id, e.name, u.realname as creator, e.total_question, e.total_score, e.pass_score, e.question_num, e.limit_time, e.createdate, c.name as course 
+		from zyyj_exam as e, zyyj_user as u, zyyj_exam_record as r, zyyj_course as c, zyyj_course_exam as ce 
+		where e.exam_id=r.exam_id and u.user_id=r.user_id and ce.exam_id=e.exam_id and c.course_id=ce.course_id and
+		e.name like #{name};
+	</select>
+	<!-- List<ExamProgramme> searchByCourse(String course); -->
+	<select id="searchByCourse" resultType="ExamProgramme">
+		select e.exam_id, e.name, u.realname as creator, e.total_question, e.total_score, e.pass_score, e.question_num, e.limit_time, e.createdate, c.name as course 
+		from zyyj_exam as e, zyyj_user as u, zyyj_exam_record as r, zyyj_course as c, zyyj_course_exam as ce 
+		where e.exam_id=r.exam_id and u.user_id=r.user_id and ce.exam_id=e.exam_id and c.course_id=ce.course_id and
+		c.name like #{name};
 	</select>
 </mapper>

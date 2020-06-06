@@ -52,8 +52,8 @@ public class ExchangeRule {
 	}
 	@Override
 	public String toString() {
-		return "ExchangeRule [rule_id=" + rule_id + ", name=" + name + ", createdate=" + createdate + ", score=" + score
-				+ ", integral=" + integral + "]";
+		return "{\"rule_id\":\"" + rule_id + "\", \"name\":\"" + name + "\", \"createdate\":\"" + createdate + "\", \"score\":\"" + score
+				+ "\", \"integral\":\"" + integral + "\"}";
 	}
 	
 	

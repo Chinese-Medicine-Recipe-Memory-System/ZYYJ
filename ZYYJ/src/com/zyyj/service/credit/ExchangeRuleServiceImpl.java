@@ -67,4 +67,10 @@ public class ExchangeRuleServiceImpl implements ExchangeRuleService{
 	public int deleteExchangeRule(String rule_id) {
 		return exchangeRuleMapper.deleteExchangeRule(rule_id);
 	}
+
+	@Override
+	public String getExchangeRuleJSON(String rule_id) {
+		
+		return exchangeRuleMapper.getExchangeRule(rule_id).toString();
+	}
 }

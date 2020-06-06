@@ -17,15 +17,15 @@ import com.zyyj.service.credit.ExchangeIntegralService;
 public class ExchangeIntegralController {
 	
 	@Autowired
-	private ExchangeIntegralService service;    // service
+	private ExchangeIntegralService service;
 	
 	@RequestMapping(value="searchExchangeIntegral", method=RequestMethod.POST)
 	@ResponseBody
 	public void searchExchangeIntegral(String input, String option, HttpServletResponse resp) throws IOException{
-		String result = service.getSearchResult(input, option);    // 获取table形式的搜索结果
+		String result = service.getSearchResult(input, option);
 		resp.setHeader("Content-Type", "text/plain;charset=UTF-8");
 		
 		PrintWriter out = resp.getWriter();
-		out.write(result);                        // 向前端发送搜索结果
+		out.write(result);
 	}
 }
