@@ -1,25 +1,26 @@
 package common;
 import java.sql.*;
 
-//Í¨ÓÃ¹¤¾ßBean£¬´¦ÀíÊı¾İ¿âÁ´½Ó
+// testupdate
+//é€šç”¨å·¥å…·Beanï¼Œå¤„ç†æ•°æ®åº“é“¾æ¥
 public class DBConnection 
 {
 	public static Connection conn = null;
 	
-	//´´½¨Êı¾İ¿âÁ´½Ó
+	//åˆ›å»ºæ•°æ®åº“é“¾æ¥
 	public static Connection getConnection()
 	{
-		//1¡¢¼ÓÔØÇı¶¯³ÌĞò
+		//1ã€åŠ è½½é©±åŠ¨ç¨‹åº
 		try 
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 		} 
 		catch (Exception e) 
 		{
-			System.out.println("Çı¶¯³ÌĞòcom.mysql.jdbc.Driver¼ÓÔØÊ§°Ü");
+			System.out.println("é©±åŠ¨ç¨‹åºcom.mysql.jdbc.DriveråŠ è½½å¤±è´¥");
 		}
 		
-		//2¡¢Á´½ÓÊı¾İ¿â
+		//2ã€é“¾æ¥æ•°æ®åº“
 		try 
 		{
 			conn = DriverManager.getConnection("jdbc:mysql://182.92.116.152:3306/db_zyyj?useUnicode=false&useSSL=false&characterEncoding=UTF-8",
@@ -28,18 +29,18 @@ public class DBConnection
 		} 
 		catch(Exception e)
 		{
-			System.out.println("»ñÈ¡Êı¾İ¿âÁ´½ÓÊ§°Ü");
+			System.out.println("è·å–æ•°æ®åº“é“¾æ¥å¤±è´¥");
 		}
 		
 		return conn;
 	}
 	
-	//¹Ø±ÕÊı¾İ¿âÁ´½Ó
+	//å…³é—­æ•°æ®åº“é“¾æ¥
 	public static void closeConnection()
 	{
 		try 
 		{
-			if (conn != null)//Á´½ÓÒÑ¾­´´½¨ºÃ
+			if (conn != null)//é“¾æ¥å·²ç»åˆ›å»ºå¥½
 			{
 				conn.close();
 				conn = null;
@@ -47,7 +48,7 @@ public class DBConnection
 		} 
 		catch (Exception e) 
 		{
-			System.out.println("¹Ø±ÕÊı¾İ¿âÁ´½ÓÊ§°Ü£¡");
+			System.out.println("å…³é—­æ•°æ®åº“é“¾æ¥å¤±è´¥ï¼");
 		}
 	}
 }
