@@ -1,5 +1,5 @@
 var xmlhttp;
-
+// commit test
 function loadExternalPage(url){
 	xmlhttp = null;
 	if(window.XMLHttpRequest){
